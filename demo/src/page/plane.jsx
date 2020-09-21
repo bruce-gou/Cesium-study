@@ -1,6 +1,5 @@
 // 加载本地3d模型，飞机飞行demo
 import React from 'react';
-import '../App.css';
 import * as Cesium from 'cesium';
 import "cesium/Build/Cesium/Widgets/widgets.css";
 var i = Date.now();
