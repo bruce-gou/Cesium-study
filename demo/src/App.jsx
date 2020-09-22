@@ -6,6 +6,7 @@ function App() {
     <div className="">
       <Row gutter={10}>
         <Col span={3}><Link to="/plane">飞机飞行demo</Link></Col>
+        <Col span={3}><Link to="/routePlanning">路线规划demo</Link></Col>
       </Row>
     </div>
   );

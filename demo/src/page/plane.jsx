@@ -78,6 +78,7 @@ class Plane extends React.Component {
     // 初始化查看器
     this.viewer = new Cesium.Viewer('cesiumContainer', {
       imageryProvider: new Cesium.UrlTemplateImageryProvider({
+        // url: "http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali", // 谷歌
         url: "https://webst{s}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&style=6", // 添加高德影像
         subdomains: ["01", "02", "03", "04"],
         maximumLevel: 18,
@@ -86,7 +87,7 @@ class Plane extends React.Component {
       scene3DOnly: false, //每个几何实例将只能以3D渲染以节省GPU内存
       fullscreenButton: false, //是否显示全屏按钮
       baseLayerPicker: false, //是否显示图层选择控件
-      geocoder: false, //是否显示地名查找控件
+      geocoder: true, //是否显示地名查找控件
       //需要进行可视化的数据源的集合
       animation: true, //是否显示动画控件
       shouldAnimate: false, // 动画自动播放
