@@ -47,7 +47,7 @@ class ThreeDtiles extends React.Component {
     var height = -30;
     var tileset = this.viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
       url: '3Dmodel/kuangshan_3dtiles/tileset.json',
-      maximumScreenSpaceError: 2,
+      maximumScreenSpaceError: 1,
       maximumNumberOfLoadedTiles: 100,
     }));
     // let tileset = new Cesium.Cesium3DTileset({
