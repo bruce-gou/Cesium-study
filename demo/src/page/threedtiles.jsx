@@ -47,8 +47,8 @@ class ThreeDtiles extends React.Component {
     var height = -30;
     var tileset = this.viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
       url: '3Dmodel/kuangshan_3dtiles/tileset.json',
-      maximumScreenSpaceError: 1,
-      maximumNumberOfLoadedTiles: 100,
+      maximumScreenSpaceError: 0,
+      maximumNumberOfLoadedTiles: 3000,
     }));
     // let tileset = new Cesium.Cesium3DTileset({
     //   maximumScreenSpaceError: 1,
@@ -56,13 +56,18 @@ class ThreeDtiles extends React.Component {
     //   url: "3Dmodel/kuangshan_3dtiles/tileset.json",  //数据路径
     // });
     const pos = { lng: 103.95537, lat: 30.56384, alt: 0 }
-    // tileset.readyPromise.then((argument) => {
-    //   // const { lng, lat, alt } = pos
-    //   // const position = Cesium.Cartesian3.fromDegrees(lng, lat, alt)
-    //   // const mat = Cesium.Transforms.eastNorthUpToFixedFrame(position);
-    //   // console.log(mat);
-    //   // tileset.root.transform = mat;
-    // })
+    tileset.readyPromise.then((argument) => {
+      // const { lng, lat, alt } = pos
+      // const position = Cesium.Cartesian3.fromDegrees(lng, lat, alt)
+      // const mat = Cesium.Transforms.eastNorthUpToFixedFrame(position);
+      // console.log(mat);
+      // tileset.root.transform = mat;
+      var translation = Cesium.Cartesian3.fromArray([0, 0, -900]);
+      var m = Cesium.Matrix4.fromTranslation(translation);
+
+      //生效
+      tileset._modelMatrix = m;
+    })
     // this.viewer.scene.primitives.add(tileset);
 
     this.viewer.flyTo(tileset, { duration: 3 });
